@@ -195,7 +195,8 @@
 
 .hero-logo-echo,
 .hero-logo-grid,
-.hero-logo-beam {
+.hero-logo-beam,
+.hero-logo-particles {
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -233,7 +234,26 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), rgba(0, 224, 255, 0.3), rgba(255, 255, 255, 0.02), transparent);
     transform: skewX(-20deg) translateX(-120%);
     filter: blur(12px);
-    opacity: 0.9;
+    opacity: 0.72;
+}
+
+.hero-logo-particles {
+    z-index: 1;
+    overflow: visible;
+}
+
+.hero-particle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.45rem;
+    height: 0.45rem;
+    margin: -0.225rem 0 0 -0.225rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(152, 241, 255, 0.95) 0%, rgba(0, 224, 255, 0.72) 45%, rgba(0, 224, 255, 0) 72%);
+    box-shadow: 0 0 14px rgba(0, 224, 255, 0.4);
+    opacity: 0;
+    filter: blur(0.4px);
 }
 
 .hero-logo-img {

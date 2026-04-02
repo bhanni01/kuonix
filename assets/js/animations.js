@@ -20,6 +20,7 @@ export function initHeroAnimations() {
     const logoBeam = hero.querySelector('.hero-logo-beam');
     const logoEchoes = hero.querySelectorAll('.hero-logo-echo');
     const logoGrid = hero.querySelector('.hero-logo-grid');
+    const particles = hero.querySelectorAll('.hero-particle');
     const eyebrow = hero.querySelector('.eyebrow');
     const title = hero.querySelector('.hero-title');
     const subtitle = hero.querySelector('.hero-subtitle');
@@ -30,7 +31,7 @@ export function initHeroAnimations() {
     const bars = hero.querySelectorAll('.signal-bars span');
 
     if (prefersReducedMotion()) {
-        gsap.set([logoImg, logoGhost, logoBeam, logoEchoes, logoGrid, eyebrow, title, subtitle, actions, metrics, dashboard, pills], {
+        gsap.set([logoImg, logoGhost, logoBeam, logoEchoes, logoGrid, particles, eyebrow, title, subtitle, actions, metrics, dashboard, pills], {
             opacity: 1,
             y: 0,
             scale: 1,
@@ -56,6 +57,9 @@ export function initHeroAnimations() {
     }
     if (logoGrid) {
         gsap.set(logoGrid, { opacity: 0 });
+    }
+    if (particles.length) {
+        gsap.set(particles, { opacity: 0, x: 0, y: 0, scale: 0.2 });
     }
     if (pills.length) {
         gsap.set(pills, { opacity: 0, y: 16 });
@@ -103,10 +107,10 @@ export function initHeroAnimations() {
         tl.to(
             logoBeam,
             {
-                opacity: 1,
-                xPercent: 120,
-                duration: 1.15,
-                ease: 'power2.inOut',
+                opacity: 0.78,
+                xPercent: 90,
+                duration: 1.4,
+                ease: 'sine.inOut',
             },
             '-=0.6'
         );
@@ -165,18 +169,71 @@ export function initHeroAnimations() {
     }
 
     if (logoBeam) {
-        gsap.fromTo(
-            logoBeam,
-            { xPercent: -120, opacity: 0 },
-            {
-                xPercent: 120,
-                opacity: 0.9,
-                duration: 2.6,
-                ease: 'none',
+        gsap.to(logoBeam, {
+            keyframes: [
+                { xPercent: -85, opacity: 0.1, duration: 0 },
+                { xPercent: 85, opacity: 0.72, duration: 2.4, ease: 'sine.inOut' },
+                { xPercent: 105, opacity: 0.02, duration: 0.55, ease: 'power1.out' },
+            ],
+            repeat: -1,
+            repeatDelay: 0.15,
+        });
+    }
+
+    if (particles.length) {
+        particles.forEach((particle, index) => {
+            const angle = (Math.PI * 2 * index) / particles.length;
+            const radius = 70 + (index % 4) * 24;
+            const driftX = Math.cos(angle) * radius;
+            const driftY = Math.sin(angle) * (radius * 0.58);
+            const travelX = driftX * 1.9 + 120;
+            const travelY = driftY * 1.4 + (index % 2 === 0 ? -36 : 28);
+
+            gsap.set(particle, {
+                x: driftX * 0.18,
+                y: driftY * 0.18,
+                scale: 0.2 + (index % 3) * 0.12,
+            });
+
+            gsap.to(particle, {
+                keyframes: [
+                    {
+                        opacity: 0,
+                        x: driftX * 0.15,
+                        y: driftY * 0.15,
+                        scale: 0.15,
+                        duration: 0,
+                    },
+                    {
+                        opacity: 0.8,
+                        x: driftX,
+                        y: driftY,
+                        scale: 1,
+                        duration: 1.35,
+                        ease: 'power2.out',
+                    },
+                    {
+                        opacity: 0.18,
+                        x: travelX,
+                        y: travelY,
+                        scale: 0.42,
+                        duration: 2.6,
+                        ease: 'none',
+                    },
+                    {
+                        opacity: 0,
+                        x: travelX + 36,
+                        y: travelY + (index % 2 === 0 ? -22 : 18),
+                        scale: 0.08,
+                        duration: 0.7,
+                        ease: 'power1.out',
+                    },
+                ],
                 repeat: -1,
-                repeatDelay: 1.2,
-            }
-        );
+                delay: index * 0.18,
+                repeatDelay: 0.2 + (index % 4) * 0.08,
+            });
+        });
     }
 
     if (bars.length) {
