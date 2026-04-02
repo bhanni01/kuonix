@@ -5,6 +5,7 @@
 import { initNavigation } from './navigation.js';
 import { initAllAnimations } from './animations.js';
 import { initGuideNavigation } from './guide-nav.js';
+import { initReportMode } from './report-mode.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isGuidePage) {
         initGuideNavigation();
     }
+
+    initReportMode();
 });
 
 let resizeTimeout;

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="KUONIX demo day report covering the product architecture, team challenges, and technical decisions.">
+    <meta name="keywords" content="KUONIX demo day, Electron frontend, Spring Boot backend, GitHub migration, image classification">
+    <meta name="author" content="KUONIX">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kuonix.app/report.html">
+    <meta property="og:title" content="KUONIX Demo Day Presentation">
+    <meta property="og:description" content="A presentation-ready report page for the KUONIX architecture, constraints, and outcomes.">
+    <meta property="og:image" content="https://kuonix.app/assets/images/hero/aurora.png">
+
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+
+    <title>KUONIX | Demo Day Presentation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="preload" href="assets/css/main.css" as="style">
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/layouts.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+            integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+            crossorigin="anonymous"
+            defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+            integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+            crossorigin="anonymous"
+            defer></script>
+    <script type="module" src="assets/js/main.js"></script>
+</head>
+<body class="guide-page report-page">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <nav aria-label="Main navigation" role="navigation">
+        <h1 class="logo" aria-label="KUONIX Home">
+            <a href="index.html" class="logo-link logo-link--ghost" aria-label="KUONIX Home"></a>
+        </h1>
+        <ul class="nav-links" role="list">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="guide.html" class="nav-link">User Guide</a></li>
+            <li><a href="report.html" class="nav-link current-page" aria-current="page">Report</a></li>
+            <li><button type="button" class="nav-link nav-link--button" id="present-toggle">Present</button></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="report-deck">
+        <section class="guide-hero guide-hero--premium report-hero report-slide" id="overview">
+            <div class="guide-hero__content">
+                <p class="eyebrow eyebrow--dark">Demo Day Presentation • April 2, 2026</p>
+                <h1>KUONIX Demo Day Presentation</h1>
+                <p>Platform choices, development constraints, and the solution path behind KUONIX.</p>
+                <div class="hero-actions">
+                    <a href="#executive-summary" class="btn btn--primary btn--lg">Start Slides</a>
+                    <button type="button" class="btn btn--ghost-dark btn--lg" data-present-trigger>Present</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="guide-container report-container">
+            <aside class="guide-sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Slides</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="#executive-summary" class="active">Introduction</a></li>
+                        <li><a href="#frontend-stack">Frontend</a></li>
+                        <li><a href="#backend-stack">Backend</a></li>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#ai-direction">AI Direction</a></li>
+                        <li><a href="#outcomes">Outcomes</a></li>
+                        <li><a href="#product-demo">Product Demo</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="guide-content">
+                <section id="executive-summary" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Introduction</p>
+                        <h2 class="subsection-title">What is KUONIX?</h2>
+                        <ul class="report-bullets">
+                            <li>KUONIX is a desktop application designed to support image classification and editing workflows.</li>
+                            <li>It helps process and organize images based on classification logic built around image analysis research.</li>
+                            <li>It is a desktop tool with direct access to local files and operating-system features.</li>
+                            <li>The overall goal is to make picture editing faster for editors by eliminating the image-selection step, so they can focus on what they do best.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="frontend-stack" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Frontend</p>
+                        <h2 class="subsection-title">Why we used Electron.</h2>
+                        <div class="report-two-column">
+                            <div class="report-card">
+                                <ul class="report-bullets">
+                                    <li>Cross-platform development from a single frontend codebase.</li>
+                                    <li>Direct access to the local file system for importing and managing image folders.</li>
+                                    <li>Desktop menus and notifications that support a native editing workflow.</li>
+                                    <li>Better fit for a desktop tool than a standard browser-only application.</li>
+                                </ul>
+                            </div>
+                            <div class="report-card report-card--accent">
+                                <h4>Key message</h4>
+                                <ul class="report-bullets report-bullets--compact">
+                                    <li>Electron gave us cross-platform reach.</li>
+                                    <li>It also gave us the OS-level access the product actually needs.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="backend-stack" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Backend</p>
+                        <h2 class="subsection-title">Why we used Spring Boot.</h2>
+                        <div class="report-two-column">
+                            <div class="report-card">
+                                <ul class="report-bullets">
+                                    <li>Supports multithreading for long-running and compute-heavy tasks.</li>
+                                    <li>Keeps complex data processing in the background instead of on the UI path.</li>
+                                    <li>Helps the frontend remain responsive during heavy processing.</li>
+                                    <li>Provides a reliable structure for organizing backend services.</li>
+                                </ul>
+                            </div>
+                            <div class="report-card">
+                                <h4>Processing flow</h4>
+                                <div class="report-timeline">
+                                    <div class="report-timeline__item">
+                                        <strong>1. User action</strong>
+                                        <span>An analysis request starts from the desktop interface.</span>
+                                    </div>
+                                    <div class="report-timeline__item">
+                                        <strong>2. Background execution</strong>
+                                        <span>Spring Boot handles the work in the background.</span>
+                                    </div>
+                                    <div class="report-timeline__item">
+                                        <strong>3. Responsive UI</strong>
+                                        <span>The interface stays usable while processing completes.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="challenges" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Challenges</p>
+                        <h2 class="subsection-title">Main constraints we had to work through.</h2>
+                        <div class="taxonomy-grid report-challenges-grid">
+                            <div>
+                                <strong>Repository limits</strong>
+                                <span>Bitbucket storage and memory constraints forced us to migrate to GitHub.</span>
+                            </div>
+                            <div>
+                                <strong>Remote collaboration</strong>
+                                <span>Working remotely made it harder to meet frequently and discuss decisions in real time.</span>
+                            </div>
+                            <div>
+                                <strong>AI implementation cost</strong>
+                                <span>A full AI approach was not feasible within our available compute and budget.</span>
+                            </div>
+                            <div>
+                                <strong>Image classification difficulty</strong>
+                                <span>The product needed image classification logic, which is expensive to do at scale with naive AI options.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="ai-direction" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">AI Direction</p>
+                        <h2 class="subsection-title">Why we did not ship a full external AI model approach.</h2>
+                        <div class="feature-grid report-feature-grid">
+                            <article class="feature-card feature-card--premium">
+                                <h4>Option 1: Train our own model</h4>
+                                <ul class="report-bullets report-bullets--compact">
+                                    <li>Needed significant processing power.</li>
+                                    <li>Would have increased infrastructure complexity.</li>
+                                    <li>Was not realistic for our available resources.</li>
+                                </ul>
+                            </article>
+                            <article class="feature-card feature-card--premium">
+                                <h4>Option 2: Use external model APIs</h4>
+                                <ul class="report-bullets report-bullets--compact">
+                                    <li>Image classification APIs come with high recurring cost.</li>
+                                    <li>Cost scales aggressively with image volume.</li>
+                                    <li>Would have been difficult to sustain.</li>
+                                </ul>
+                            </article>
+                            <article class="feature-card feature-card--premium">
+                                <h4>What we built instead</h4>
+                                <ul class="report-bullets report-bullets--compact">
+                                    <li>We studied existing image-classification research.</li>
+                                    <li>We drafted a clean algorithm around the problem space.</li>
+                                    <li>We built a practical model for our use case without the full AI cost burden.</li>
+                                </ul>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="outcomes" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Outcomes</p>
+                        <h2 class="subsection-title">What we achieved.</h2>
+                        <div class="algorithm-grid report-outcomes-grid">
+                            <article class="algorithm-card">
+                                <h4>Desktop-ready workflow</h4>
+                                <p>Electron gave the product the environment needed for file-heavy editing work.</p>
+                            </article>
+                            <article class="algorithm-card">
+                                <h4>Responsive processing</h4>
+                                <p>Spring Boot allowed heavy tasks to run in the background without locking the UI.</p>
+                            </article>
+                            <article class="algorithm-card">
+                                <h4>Repository stability</h4>
+                                <p>The move to GitHub removed a tooling constraint caused by Bitbucket limits.</p>
+                            </article>
+                            <article class="algorithm-card algorithm-card--highlight">
+                                <h4>Practical classification path</h4>
+                                <p>We turned research into a clean algorithmic approach that fit our resources.</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="product-demo" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Product Demo</p>
+                        <h2 class="subsection-title">Let’s see the product.</h2>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="present-toolbar" aria-label="Presentation controls">
+            <button type="button" class="btn btn--ghost-dark btn--sm" data-present-prev>Prev</button>
+            <button type="button" class="btn btn--primary btn--sm" data-present-next>Next</button>
+            <button type="button" class="btn btn--ghost-dark btn--sm" data-present-exit>Exit</button>
+        </div>
+
+        <footer class="site-footer">
+            <p>KUONIX Demo Day Presentation</p>
+        </footer>
+    </main>
+</body>
+</html>
