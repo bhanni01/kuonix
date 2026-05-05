@@ -10,6 +10,14 @@ function isDesktop() {
     return window.innerWidth >= 1025;
 }
 
+function setSmoothDefaults() {
+    gsap.defaults({
+        ease: 'power2.out',
+        duration: 0.9,
+        force3D: true,
+    });
+}
+
 export function initHeroAnimations() {
     const hero = document.querySelector('.hero-section');
     if (!hero) return;
@@ -40,29 +48,29 @@ export function initHeroAnimations() {
         return;
     }
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-    gsap.set([eyebrow, title, subtitle, actions, metrics, dashboard], { opacity: 0, y: 28 });
+    gsap.set([eyebrow, title, subtitle, actions, metrics, dashboard], { opacity: 0, y: 20, willChange: 'transform, opacity' });
     if (logoImg) {
-        gsap.set(logoImg, { opacity: 0, scale: 0.86, y: 24, filter: 'blur(10px)' });
+        gsap.set(logoImg, { opacity: 0, scale: 0.92, y: 18, filter: 'blur(8px)', willChange: 'transform, opacity, filter' });
     }
     if (logoGhost) {
-        gsap.set(logoGhost, { opacity: 0, scale: 1.04 });
+        gsap.set(logoGhost, { opacity: 0, scale: 1.02, willChange: 'transform, opacity' });
     }
     if (logoBeam) {
         gsap.set(logoBeam, { xPercent: -120, opacity: 0 });
     }
     if (logoEchoes.length) {
-        gsap.set(logoEchoes, { opacity: 0, scale: 0.9 });
+        gsap.set(logoEchoes, { opacity: 0, scale: 0.94, willChange: 'transform, opacity' });
     }
     if (logoGrid) {
         gsap.set(logoGrid, { opacity: 0 });
     }
     if (particles.length) {
-        gsap.set(particles, { opacity: 0, x: 0, y: 0, scale: 0.2 });
+        gsap.set(particles, { opacity: 0, x: 0, y: 0, scale: 0.2, willChange: 'transform, opacity' });
     }
     if (pills.length) {
-        gsap.set(pills, { opacity: 0, y: 16 });
+        gsap.set(pills, { opacity: 0, y: 12, willChange: 'transform, opacity' });
     }
 
     if (logoEchoes.length) {
@@ -71,14 +79,14 @@ export function initHeroAnimations() {
             {
                 opacity: 0.55,
                 scale: 1,
-                duration: 0.9,
-                stagger: 0.08,
+                duration: 1.1,
+                stagger: 0.1,
             }
         );
     }
 
     if (logoGrid) {
-        tl.to(logoGrid, { opacity: 0.24, duration: 0.55 }, '-=0.55');
+        tl.to(logoGrid, { opacity: 0.24, duration: 0.75 }, '-=0.7');
     }
 
     if (logoImg) {
@@ -87,7 +95,7 @@ export function initHeroAnimations() {
             scale: 1,
             y: 0,
             filter: 'blur(0px)',
-            duration: 1,
+            duration: 1.2,
         });
     }
 
@@ -97,9 +105,9 @@ export function initHeroAnimations() {
             {
                 opacity: 0.22,
                 scale: 1,
-                duration: 0.85,
+                duration: 1,
             },
-            '-=0.8'
+            '-=0.95'
         );
     }
 
@@ -109,34 +117,34 @@ export function initHeroAnimations() {
             {
                 opacity: 0.78,
                 xPercent: 90,
-                duration: 1.4,
+                duration: 1.9,
                 ease: 'sine.inOut',
             },
-            '-=0.6'
+            '-=0.8'
         );
     }
 
-    tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.55 }, '-=0.55')
-        .to(title, { opacity: 1, y: 0, duration: 0.85 }, '-=0.35')
-        .to(subtitle, { opacity: 1, y: 0, duration: 0.75 }, '-=0.45')
-        .to(actions, { opacity: 1, y: 0, duration: 0.65 }, '-=0.45')
+    tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.7 }, '-=0.8')
+        .to(title, { opacity: 1, y: 0, duration: 1 }, '-=0.45')
+        .to(subtitle, { opacity: 1, y: 0, duration: 0.9 }, '-=0.62')
+        .to(actions, { opacity: 1, y: 0, duration: 0.8 }, '-=0.62')
         .to(
             pills,
             {
                 opacity: 1,
                 y: 0,
-                duration: 0.45,
-                stagger: 0.08,
+                duration: 0.7,
+                stagger: 0.1,
             },
-            '-=0.35'
+            '-=0.45'
         )
-        .to(metrics, { opacity: 1, y: 0, duration: 0.7 }, '-=0.25')
-        .to(dashboard, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5');
+        .to(metrics, { opacity: 1, y: 0, duration: 0.85 }, '-=0.32')
+        .to(dashboard, { opacity: 1, y: 0, duration: 0.95 }, '-=0.62');
 
     if (logoFloat) {
         gsap.to(logoFloat, {
-            y: 12,
-            duration: 3.4,
+            y: 8,
+            duration: 5.4,
             ease: 'sine.inOut',
             repeat: -1,
             yoyo: true,
@@ -145,10 +153,10 @@ export function initHeroAnimations() {
 
     if (logoGhost) {
         gsap.to(logoGhost, {
-            x: 12,
-            y: -8,
-            opacity: 0.28,
-            duration: 4.2,
+            x: 8,
+            y: -5,
+            opacity: 0.26,
+            duration: 6.2,
             ease: 'sine.inOut',
             repeat: -1,
             yoyo: true,
@@ -158,9 +166,9 @@ export function initHeroAnimations() {
     if (logoEchoes.length) {
         logoEchoes.forEach((echo, index) => {
             gsap.to(echo, {
-                scale: index === 0 ? 0.98 : 1.12,
-                opacity: index === 0 ? 0.34 : 0.18,
-                duration: 3.8 + index * 0.6,
+                scale: index === 0 ? 0.99 : 1.08,
+                opacity: index === 0 ? 0.32 : 0.16,
+                duration: 5.4 + index * 0.8,
                 ease: 'sine.inOut',
                 repeat: -1,
                 yoyo: true,
@@ -172,11 +180,11 @@ export function initHeroAnimations() {
         gsap.to(logoBeam, {
             keyframes: [
                 { xPercent: -85, opacity: 0.1, duration: 0 },
-                { xPercent: 85, opacity: 0.72, duration: 2.4, ease: 'sine.inOut' },
-                { xPercent: 105, opacity: 0.02, duration: 0.55, ease: 'power1.out' },
+                { xPercent: 85, opacity: 0.62, duration: 3.4, ease: 'sine.inOut' },
+                { xPercent: 105, opacity: 0.02, duration: 0.8, ease: 'power1.out' },
             ],
             repeat: -1,
-            repeatDelay: 0.15,
+            repeatDelay: 0.5,
         });
     }
 
@@ -209,7 +217,7 @@ export function initHeroAnimations() {
                         x: driftX,
                         y: driftY,
                         scale: 1,
-                        duration: 1.35,
+                        duration: 1.6,
                         ease: 'power2.out',
                     },
                     {
@@ -217,21 +225,21 @@ export function initHeroAnimations() {
                         x: travelX,
                         y: travelY,
                         scale: 0.42,
-                        duration: 2.6,
-                        ease: 'none',
+                        duration: 3.2,
+                        ease: 'sine.inOut',
                     },
                     {
                         opacity: 0,
                         x: travelX + 36,
                         y: travelY + (index % 2 === 0 ? -22 : 18),
                         scale: 0.08,
-                        duration: 0.7,
+                        duration: 1,
                         ease: 'power1.out',
                     },
                 ],
                 repeat: -1,
-                delay: index * 0.18,
-                repeatDelay: 0.2 + (index % 4) * 0.08,
+                delay: index * 0.22,
+                repeatDelay: 0.55 + (index % 4) * 0.12,
             });
         });
     }
@@ -243,9 +251,9 @@ export function initHeroAnimations() {
                 { scaleY: 0.18, transformOrigin: 'bottom center' },
                 {
                     scaleY: 1,
-                    duration: 1,
-                    delay: 0.7 + index * 0.08,
-                    ease: 'elastic.out(1, 0.65)',
+                    duration: 1.1,
+                    delay: 0.85 + index * 0.1,
+                    ease: 'power2.out',
                 }
             );
         });
@@ -258,7 +266,7 @@ export function initHeroAnimations() {
             trigger: hero,
             start: 'top top',
             end: 'bottom top',
-            scrub: true,
+            scrub: 1.2,
         },
     });
 
@@ -269,7 +277,7 @@ export function initHeroAnimations() {
             trigger: hero,
             start: 'top top',
             end: 'bottom top',
-            scrub: true,
+            scrub: 1.2,
         },
     });
 }
@@ -299,11 +307,11 @@ export function initWorkflowScroll() {
 
         if (text) {
             gsap.from(text.children, {
-                y: 28,
+                y: 22,
                 opacity: 0,
-                duration: 0.7,
-                stagger: 0.08,
-                ease: 'power3.out',
+                duration: 0.9,
+                stagger: 0.1,
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: step,
                     start: 'left center',
@@ -315,9 +323,9 @@ export function initWorkflowScroll() {
         if (panel) {
             gsap.from(panel, {
                 opacity: 0,
-                scale: 0.96,
-                duration: 0.8,
-                ease: 'power3.out',
+                scale: 0.98,
+                duration: 0.95,
+                ease: 'power2.out',
                 scrollTrigger: {
                     trigger: step,
                     start: 'left center',
@@ -333,15 +341,15 @@ export function initRevealAnimations() {
     if (!revealBlocks.length || prefersReducedMotion()) return;
 
     revealBlocks.forEach((block) => {
-        const direction = block.dataset.reveal === 'up' ? 46 : 32;
+        const direction = block.dataset.reveal === 'up' ? 30 : 22;
         gsap.from(block, {
             y: direction,
             opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out',
+            duration: 1,
+            ease: 'power2.out',
             scrollTrigger: {
                 trigger: block,
-                start: 'top 85%',
+                start: 'top 88%',
                 toggleActions: 'play none none none',
             },
         });
@@ -354,10 +362,10 @@ export function initIssueCards() {
 
     cards.forEach((card) => {
         gsap.from(card, {
-            y: 40,
+            y: 24,
             opacity: 0,
-            duration: 0.75,
-            ease: 'power3.out',
+            duration: 0.95,
+            ease: 'power2.out',
             scrollTrigger: {
                 trigger: card,
                 start: 'top 88%',
@@ -377,15 +385,15 @@ export function initImageParallax() {
 
         gsap.fromTo(
             img,
-            { yPercent: -6 },
+            { yPercent: -3 },
             {
-                yPercent: 6,
+                yPercent: 3,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: wrap,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: true,
+                    scrub: 1.4,
                 },
             }
         );
@@ -398,8 +406,8 @@ export function initTechPanelMotion() {
 
     panels.forEach((panel, index) => {
         gsap.to(panel, {
-            y: index % 2 === 0 ? -8 : 8,
-            duration: 3 + index * 0.15,
+            y: index % 2 === 0 ? -4 : 4,
+            duration: 6 + index * 0.25,
             ease: 'sine.inOut',
             repeat: -1,
             yoyo: true,
@@ -412,20 +420,20 @@ export function initGuideHeroMotion() {
     if (!guideHero || prefersReducedMotion()) return;
 
     gsap.from('.guide-hero__content > *', {
-        y: 26,
+        y: 20,
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: 'power3.out',
+        duration: 1,
+        stagger: 0.1,
+        ease: 'power2.out',
     });
 
     gsap.from('.guide-hero__panel', {
         opacity: 0,
-        y: 32,
-        scale: 0.97,
-        duration: 0.85,
-        ease: 'power3.out',
-        delay: 0.25,
+        y: 20,
+        scale: 0.985,
+        duration: 1,
+        ease: 'power2.out',
+        delay: 0.3,
     });
 }
 
@@ -435,6 +443,7 @@ export function initAllAnimations() {
     }
 
     gsap.registerPlugin(ScrollTrigger);
+    setSmoothDefaults();
 
     initHeroAnimations();
     initGuideHeroMotion();

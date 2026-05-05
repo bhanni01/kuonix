@@ -63,7 +63,7 @@
                 <h1>KUONIX Demo Day Presentation</h1>
                 <p>Platform choices, development constraints, and the solution path behind KUONIX.</p>
                 <div class="hero-actions">
-                    <a href="#executive-summary" class="btn btn--primary btn--lg">Start Slides</a>
+                    <a href="#agenda" class="btn btn--primary btn--lg">Start Slides</a>
                     <button type="button" class="btn btn--ghost-dark btn--lg" data-present-trigger>Present</button>
                 </div>
             </div>
@@ -74,27 +74,44 @@
                 <div class="sidebar-section">
                     <h3 class="sidebar-title">Slides</h3>
                     <ul class="sidebar-links">
-                        <li><a href="#executive-summary" class="active">Introduction</a></li>
+                        <li><a href="#agenda" class="active">Agenda</a></li>
+                        <li><a href="#executive-summary">Introduction</a></li>
                         <li><a href="#frontend-stack">Frontend</a></li>
                         <li><a href="#backend-stack">Backend</a></li>
                         <li><a href="#challenges">Challenges</a></li>
                         <li><a href="#ai-direction">AI Direction</a></li>
                         <li><a href="#outcomes">Outcomes</a></li>
                         <li><a href="#product-demo">Product Demo</a></li>
+                        <li><a href="#closing">Closing</a></li>
                     </ul>
                 </div>
             </aside>
 
             <div class="guide-content">
+                <section id="agenda" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Agenda</p>
+                        <h2 class="subsection-title">What we will cover today.</h2>
+                        <ul class="report-bullets">
+                            <li><strong>Introduction.</strong> What KUONIX is and who it serves.</li>
+                            <li><strong>Frontend.</strong> Why we chose Electron for the desktop layer.</li>
+                            <li><strong>Backend.</strong> Why Spring Boot fits our processing needs.</li>
+                            <li><strong>Challenges.</strong> The constraints we had to work through.</li>
+                            <li><strong>AI direction.</strong> How we approached image classification.</li>
+                            <li><strong>Outcomes.</strong> What we delivered and a live product demo.</li>
+                        </ul>
+                    </div>
+                </section>
+
                 <section id="executive-summary" class="content-section report-slide">
                     <div class="subsection subsection--premium report-section" data-reveal="up">
                         <p class="eyebrow eyebrow--dark">Introduction</p>
                         <h2 class="subsection-title">What is KUONIX?</h2>
                         <ul class="report-bullets">
-                            <li>KUONIX is a desktop application designed to support image classification and editing workflows.</li>
-                            <li>It helps process and organize images based on classification logic built around image analysis research.</li>
-                            <li>It is a desktop tool with direct access to local files and operating-system features.</li>
-                            <li>The overall goal is to make picture editing faster for editors by eliminating the image-selection step, so they can focus on what they do best.</li>
+                            <li><strong>Desktop app</strong> for image classification and editing workflows.</li>
+                            <li><strong>Image analysis research</strong> drives the classification logic.</li>
+                            <li><strong>Local file & OS access</strong> built directly into the product.</li>
+                            <li><strong>Removes the selection step</strong> so editors focus on editing.</li>
                         </ul>
                     </div>
                 </section>
@@ -106,17 +123,17 @@
                         <div class="report-two-column">
                             <div class="report-card">
                                 <ul class="report-bullets">
-                                    <li>Cross-platform development from a single frontend codebase.</li>
-                                    <li>Direct access to the local file system for importing and managing image folders.</li>
-                                    <li>Desktop menus and notifications that support a native editing workflow.</li>
-                                    <li>Better fit for a desktop tool than a standard browser-only application.</li>
+                                    <li><strong>Cross-platform</strong> development from one frontend codebase.</li>
+                                    <li><strong>Local file system</strong> access for importing image folders.</li>
+                                    <li><strong>Native menus & notifications</strong> for a real editing workflow.</li>
+                                    <li><strong>Desktop fit</strong> rather than a browser-only application.</li>
                                 </ul>
                             </div>
                             <div class="report-card report-card--accent">
                                 <h4>Key message</h4>
                                 <ul class="report-bullets report-bullets--compact">
-                                    <li>Electron gave us cross-platform reach.</li>
-                                    <li>It also gave us the OS-level access the product actually needs.</li>
+                                    <li><strong>Cross-platform reach</strong> from a single codebase.</li>
+                                    <li><strong>OS-level access</strong> the product actually needs.</li>
                                 </ul>
                             </div>
                         </div>
@@ -130,10 +147,10 @@
                         <div class="report-two-column">
                             <div class="report-card">
                                 <ul class="report-bullets">
-                                    <li>Supports multithreading for long-running and compute-heavy tasks.</li>
-                                    <li>Keeps complex data processing in the background instead of on the UI path.</li>
-                                    <li>Helps the frontend remain responsive during heavy processing.</li>
-                                    <li>Provides a reliable structure for organizing backend services.</li>
+                                    <li><strong>Multithreading</strong> for long-running, compute-heavy tasks.</li>
+                                    <li><strong>Background processing</strong> keeps work off the UI path.</li>
+                                    <li><strong>Responsive UI</strong> stays usable during heavy processing.</li>
+                                    <li><strong>Service structure</strong> for organising the backend cleanly.</li>
                                 </ul>
                             </div>
                             <div class="report-card">
@@ -164,19 +181,19 @@
                         <div class="taxonomy-grid report-challenges-grid">
                             <div>
                                 <strong>Repository limits</strong>
-                                <span>Bitbucket storage and memory constraints forced us to migrate to GitHub.</span>
+                                <span>Bitbucket storage limits forced a migration to GitHub.</span>
                             </div>
                             <div>
                                 <strong>Remote collaboration</strong>
-                                <span>Working remotely made it harder to meet frequently and discuss decisions in real time.</span>
+                                <span>Remote work made real-time decisions harder to coordinate.</span>
                             </div>
                             <div>
                                 <strong>AI implementation cost</strong>
-                                <span>A full AI approach was not feasible within our available compute and budget.</span>
+                                <span>A full AI approach exceeded our compute and budget.</span>
                             </div>
                             <div>
                                 <strong>Image classification difficulty</strong>
-                                <span>The product needed image classification logic, which is expensive to do at scale with naive AI options.</span>
+                                <span>Classification at scale is expensive with naive AI options.</span>
                             </div>
                         </div>
                     </div>
@@ -190,25 +207,25 @@
                             <article class="feature-card feature-card--premium">
                                 <h4>Option 1: Train our own model</h4>
                                 <ul class="report-bullets report-bullets--compact">
-                                    <li>Needed significant processing power.</li>
-                                    <li>Would have increased infrastructure complexity.</li>
-                                    <li>Was not realistic for our available resources.</li>
+                                    <li><strong>Heavy compute</strong> required to train and iterate.</li>
+                                    <li><strong>Higher infra complexity</strong> across the stack.</li>
+                                    <li><strong>Not realistic</strong> for our available resources.</li>
                                 </ul>
                             </article>
                             <article class="feature-card feature-card--premium">
                                 <h4>Option 2: Use external model APIs</h4>
                                 <ul class="report-bullets report-bullets--compact">
-                                    <li>Image classification APIs come with high recurring cost.</li>
-                                    <li>Cost scales aggressively with image volume.</li>
-                                    <li>Would have been difficult to sustain.</li>
+                                    <li><strong>High recurring cost</strong> on image classification APIs.</li>
+                                    <li><strong>Scales aggressively</strong> with image volume.</li>
+                                    <li><strong>Not sustainable</strong> at the volume we expect.</li>
                                 </ul>
                             </article>
                             <article class="feature-card feature-card--premium">
                                 <h4>What we built instead</h4>
                                 <ul class="report-bullets report-bullets--compact">
-                                    <li>We studied existing image-classification research.</li>
-                                    <li>We drafted a clean algorithm around the problem space.</li>
-                                    <li>We built a practical model for our use case without the full AI cost burden.</li>
+                                    <li><strong>Studied research</strong> on image classification.</li>
+                                    <li><strong>Drafted a clean algorithm</strong> around the problem.</li>
+                                    <li><strong>Built a practical model</strong> without the full AI cost.</li>
                                 </ul>
                             </article>
                         </div>
@@ -222,19 +239,19 @@
                         <div class="algorithm-grid report-outcomes-grid">
                             <article class="algorithm-card">
                                 <h4>Desktop-ready workflow</h4>
-                                <p>Electron gave the product the environment needed for file-heavy editing work.</p>
+                                <p>Electron gave us the right environment for file-heavy editing.</p>
                             </article>
                             <article class="algorithm-card">
                                 <h4>Responsive processing</h4>
-                                <p>Spring Boot allowed heavy tasks to run in the background without locking the UI.</p>
+                                <p>Spring Boot kept heavy work off the UI thread.</p>
                             </article>
                             <article class="algorithm-card">
                                 <h4>Repository stability</h4>
-                                <p>The move to GitHub removed a tooling constraint caused by Bitbucket limits.</p>
+                                <p>GitHub removed the Bitbucket storage constraint.</p>
                             </article>
                             <article class="algorithm-card algorithm-card--highlight">
                                 <h4>Practical classification path</h4>
-                                <p>We turned research into a clean algorithmic approach that fit our resources.</p>
+                                <p>Research turned into a clean, resource-fit algorithm.</p>
                             </article>
                         </div>
                     </div>
@@ -244,6 +261,24 @@
                     <div class="subsection subsection--premium report-section" data-reveal="up">
                         <p class="eyebrow eyebrow--dark">Product Demo</p>
                         <h2 class="subsection-title">Let’s see the product.</h2>
+                        <ul class="report-bullets">
+                            <li><strong>Import a folder</strong> of images straight from disk.</li>
+                            <li><strong>Run classification</strong> on the imported set.</li>
+                            <li><strong>Review and edit</strong> the classified results.</li>
+                            <li><strong>Export</strong> the curated set for delivery.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="closing" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Closing</p>
+                        <h2 class="subsection-title">Thank you.</h2>
+                        <ul class="report-bullets">
+                            <li><strong>Takeaway.</strong> A desktop-fit tool that removes the selection step.</li>
+                            <li><strong>Built by</strong> the KUONIX team across frontend, backend, and research.</li>
+                            <li><strong>Questions?</strong> Happy to dig into any part of the deck.</li>
+                        </ul>
                     </div>
                 </section>
             </div>

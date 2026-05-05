@@ -73,8 +73,8 @@ nav.blend-mode {
 }
 
 .btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px var(--accent-glow);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px var(--accent-glow);
 }
 
 .btn--secondary {
@@ -118,12 +118,12 @@ nav.blend-mode {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .cta-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
 .cta-btn--pulse {
@@ -174,7 +174,7 @@ nav.blend-mode {
 }
 
 .bento-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
     border-color: var(--accent-cyan);
 }
@@ -197,9 +197,9 @@ nav.blend-mode {
 }
 
 .feature-card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     border-color: var(--accent-cyan);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.06);
 }
 
 .feature-card h4 {

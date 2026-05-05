@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KUONIX User Guide</title>
+<style>
+  @page {
+    size: A4;
+    margin: 18mm 16mm 18mm 16mm;
+    @bottom-center {
+      content: "KUONIX User Guide  •  Page " counter(page) " of " counter(pages);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 9pt;
+      color: #888;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 10.5pt;
+    line-height: 1.55;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cover {
+    page-break-after: always;
+    text-align: left;
+    padding-top: 30mm;
+    border-top: 6px solid #111;
+  }
+  .cover .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 9pt;
+    color: #6b6b6b;
+    margin: 0 0 12mm 0;
+  }
+  .cover h1 {
+    font-size: 32pt;
+    line-height: 1.1;
+    margin: 0 0 8mm 0;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .cover .lede {
+    font-size: 13pt;
+    color: #2a2a2a;
+    max-width: 140mm;
+    line-height: 1.45;
+    margin: 0 0 24mm 0;
+  }
+  .cover .stages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6mm;
+    margin-top: 14mm;
+    border-top: 1px solid #ddd;
+    padding-top: 8mm;
+  }
+  .cover .stages div strong {
+    display: block;
+    font-size: 18pt;
+    font-weight: 700;
+    color: #111;
+  }
+  .cover .stages div span {
+    display: block;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #6b6b6b;
+    margin-top: 2mm;
+  }
+  .cover .meta {
+    position: absolute;
+    bottom: 18mm;
+    font-size: 9pt;
+    color: #888;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .toc {
+    page-break-after: always;
+  }
+  .toc h2 {
+    font-size: 18pt;
+    margin: 0 0 10mm 0;
+    border-bottom: 2px solid #111;
+    padding-bottom: 4mm;
+  }
+  .toc h3 {
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6b6b6b;
+    margin: 8mm 0 3mm 0;
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .toc li {
+    display: flex;
+    justify-content: space-between;
+    padding: 2mm 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 11pt;
+  }
+
+  section.chapter {
+    page-break-before: always;
+  }
+  section.chapter:first-of-type { page-break-before: auto; }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 8.5pt;
+    color: #6b6b6b;
+    margin: 0 0 3mm 0;
+    font-weight: 600;
+  }
+  h2.chapter-title {
+    font-size: 22pt;
+    line-height: 1.15;
+    margin: 0 0 6mm 0;
+    font-weight: 800;
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 13pt;
+    margin: 8mm 0 3mm 0;
+    font-weight: 700;
+  }
+  h4 {
+    font-size: 10.5pt;
+    margin: 0 0 2mm 0;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  p { margin: 0 0 3mm 0; }
+  .lede {
+    font-size: 11.5pt;
+    color: #2a2a2a;
+    margin-bottom: 8mm;
+    max-width: 160mm;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .card {
+    border: 1px solid #d8d8d8;
+    border-left: 3px solid #111;
+    padding: 5mm 6mm;
+    background: #fafafa;
+    page-break-inside: avoid;
+  }
+  .card p { margin: 1mm 0 0 0; font-size: 10pt; color: #2a2a2a; }
+
+  .workflow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .workflow .step {
+    border: 1px solid #d8d8d8;
+    padding: 5mm;
+    position: relative;
+    page-break-inside: avoid;
+  }
+  .workflow .step .num {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    width: 8mm;
+    height: 8mm;
+    line-height: 8mm;
+    text-align: center;
+    border-radius: 50%;
+    margin-bottom: 3mm;
+  }
+
+  .lab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .lab figure { margin: 0; }
+  .lab figcaption {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6b6b6b;
+    margin-bottom: 2mm;
+  }
+  .lab img {
+    width: 100%;
+    height: 60mm;
+    object-fit: cover;
+    border: 1px solid #ddd;
+  }
+
+  .algos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .algo {
+    padding: 4mm 5mm;
+    border: 1px solid #d8d8d8;
+    page-break-inside: avoid;
+  }
+  .algo.highlight {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+  .algo h4 { margin-bottom: 1.5mm; }
+  .algo p { font-size: 9.5pt; margin: 0; }
+
+  .taxonomy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .tax-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    padding: 3mm 1mm;
+    font-size: 10pt;
+  }
+  .tax-row strong { font-weight: 700; }
+  .tax-row span { color: #555; }
+
+  .settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    margin: 4mm 0 6mm 0;
+  }
+  .setting {
+    border: 1px solid #d8d8d8;
+    padding: 4mm 5mm;
+    page-break-inside: avoid;
+  }
+  .setting .label {
+    font-size: 8.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #6b6b6b;
+    display: block;
+    margin-bottom: 2mm;
+  }
+  .setting strong {
+    font-size: 10pt;
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  .ops p {
+    border-left: 3px solid #111;
+    padding: 3mm 5mm;
+    background: #fafafa;
+    margin: 0 0 3mm 0;
+    page-break-inside: avoid;
+    font-size: 10pt;
+  }
+  .ops strong { font-weight: 700; }
+
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 6mm 0;
+  }
+  footer.colophon {
+    page-break-before: always;
+    padding-top: 30mm;
+    color: #555;
+    font-size: 10pt;
+  }
+  footer.colophon h2 {
+    font-size: 16pt;
+    margin: 0 0 6mm 0;
+    color: #111;
+  }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <p class="eyebrow">System Guide  •  v1.0</p>
+  <h1>KUONIX<br>User Guide</h1>
+  <p class="lede">Production documentation for the Kuonix pipeline. Use this guide to understand how jobs move through staging, classification, Color Lab, and native export so the platform behaves like a disciplined part of the studio workflow.</p>
+  <div class="stages">
+    <div><strong>01</strong><span>Staging</span></div>
+    <div><strong>02</strong><span>Library</span></div>
+    <div><strong>03</strong><span>Color Lab</span></div>
+    <div><strong>04</strong><span>Export</span></div>
+  </div>
+  <p class="meta">Imaging intelligence for high-volume photography</p>
+</section>
+
+<section class="toc">
+  <h2>Contents</h2>
+  <h3>Overview</h3>
+  <ol>
+    <li><span>1. Workflow Model</span><span>03</span></li>
+    <li><span>2. Staging and Intake</span><span>04</span></li>
+    <li><span>3. Library</span><span>05</span></li>
+    <li><span>4. Color Lab</span><span>06</span></li>
+    <li><span>5. Export and Settings</span><span>08</span></li>
+  </ol>
+  <h3>Reference</h3>
+  <ol>
+    <li><span>6. Issue Taxonomy</span><span>09</span></li>
+    <li><span>7. Algorithms</span><span>06</span></li>
+    <li><span>8. Operating Notes</span><span>10</span></li>
+  </ol>
+</section>
+
+<section class="chapter" id="workflow-model">
+  <p class="eyebrow">Chapter 1  •  Workflow Model</p>
+  <h2 class="chapter-title">What Kuonix is actually doing in the stack.</h2>
+  <p class="lede">Kuonix is a platform-agnostic application used to sort images into categories based on color-correction needs such as contrast, white balance, exposure, and cast issues. It supports professional batch workflows by organizing work for tools like Photoshop, while also offering limited editing capabilities inside the app.</p>
+
+  <div class="grid">
+    <div class="card"><h4>Staging</h4><p>Bring in full shoots, preview what arrived, and remove unwanted frames before the engine starts classifying them.</p></div>
+    <div class="card"><h4>Classification</h4><p>Images are grouped by measurable technical defects, not by a vague aesthetic score or metadata assumption.</p></div>
+    <div class="card"><h4>Correction</h4><p>Color Lab provides limited but useful in-app correction tools for balancing, exposure alignment, saturation work, and reference matching.</p></div>
+    <div class="card"><h4>Routing</h4><p>Export opens folders in native tools so final creative work stays in the editor your team already uses.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="staging">
+  <p class="eyebrow">Chapter 2  •  Staging and Intake</p>
+  <h2 class="chapter-title">Get a clean queue ready for automated review.</h2>
+  <p class="lede">The Upload and Analyze page is where the system takes control of a session. This phase is about keeping bad files out, making large jobs manageable, and getting a clean queue ready for automated review.</p>
+
+  <div class="workflow">
+    <div class="step"><span class="num">1</span><h4>Import</h4><p>Drop complete shoots into the staging area or browse from local storage.</p></div>
+    <div class="step"><span class="num">2</span><h4>Preview</h4><p>Verify what arrived before committing the engine to a full classification pass.</p></div>
+    <div class="step"><span class="num">3</span><h4>Cull</h4><p>Remove obvious misses, duplicates, or unusable frames before processing starts.</p></div>
+  </div>
+
+  <h3>Operator Tips</h3>
+  <p>Keep the staging set tight. The classification engine is at its best when it is not asked to label garbage frames — pre-cull discipline directly raises the signal of every downstream queue.</p>
+</section>
+
+<section class="chapter" id="library">
+  <p class="eyebrow">Chapter 3  •  Library</p>
+  <h2 class="chapter-title">A controlled review surface for everything ingested.</h2>
+  <p class="lede">The Library view functions as a controlled review surface for everything that has been ingested. Operators can see thumbnails, issue labels, and batch-select images that need a common correction path.</p>
+
+  <div class="grid">
+    <div class="card"><h4>Grid Review</h4><p>Visual thumbnails keep the operator oriented while issue tags expose what the engine has already detected.</p></div>
+    <div class="card"><h4>Selection Logic</h4><p>Bulk selection tools make it practical to move large image groups into Color Lab or export subsets by defect type.</p></div>
+    <div class="card"><h4>Action Surface</h4><p>Delete, isolate, and send to correction workflows without bouncing between multiple tools or folders.</p></div>
+    <div class="card"><h4>Issue Visibility</h4><p>Classification stays attached to the image, which removes ambiguity when teams return to a job later.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="color-lab">
+  <p class="eyebrow">Chapter 4  •  Color Lab</p>
+  <h2 class="chapter-title">A limited editing bay for targeted, deliberate fixes.</h2>
+  <p class="lede">Color Lab is the system's limited editing bay. It exists for cases where classification has already identified a known technical problem and the operator wants a targeted in-app fix before pushing the batch into a primary editor.</p>
+
+  <div class="lab">
+    <figure>
+      <figcaption>Before</figcaption>
+      <img src="assets/images/gallery/transfer.jpg" alt="Before view in Color Lab">
+    </figure>
+    <figure>
+      <figcaption>After</figcaption>
+      <img src="assets/images/gallery/on car.jpg" alt="After view in Color Lab">
+    </figure>
+  </div>
+
+  <h3>Algorithms</h3>
+  <div class="algos">
+    <div class="algo"><h4>Gray World</h4><p>Neutralizes white balance by assuming average scene color should approach gray.</p></div>
+    <div class="algo"><h4>White Patch</h4><p>Uses the brightest region as a white reference when a clean highlight exists.</p></div>
+    <div class="algo"><h4>Shades of Gray</h4><p>Extends white balance correction through a stronger p-norm approach for more demanding scenes.</p></div>
+    <div class="algo"><h4>Exposure Adjustment</h4><p>Applies controlled global gain to repair frames that are uniformly dark or bright.</p></div>
+    <div class="algo"><h4>Saturation Control</h4><p>Boosts or tamps down color intensity where the issue is global and obvious.</p></div>
+    <div class="algo"><h4>Color Matrix Transform</h4><p>Supports deeper channel transforms for stylized grading and space conversion work.</p></div>
+    <div class="algo highlight"><h4>Color Distribution Alignment</h4><p>Matches target images to a reference look in LAB space, which is critical for consistency across multi-camera sets.</p></div>
+  </div>
+</section>
+
+<section class="chapter" id="issue-taxonomy">
+  <p class="eyebrow">Chapter 5  •  Issue Taxonomy</p>
+  <h2 class="chapter-title">Categories that lead to an obvious next action.</h2>
+  <p class="lede">The value of the platform depends on issue categories being useful to the editor, not just mathematically interesting. Each class should lead to an obvious next action.</p>
+
+  <div class="taxonomy">
+    <div class="tax-row"><strong>Exposure</strong><span>Under / Over</span></div>
+    <div class="tax-row"><strong>Contrast</strong><span>Low / High</span></div>
+    <div class="tax-row"><strong>Saturation</strong><span>Dull / Oversaturated / Channel shift</span></div>
+    <div class="tax-row"><strong>Color Cast</strong><span>Blue / Yellow / Green / Cyan / Magenta / Red</span></div>
+    <div class="tax-row"><strong>Noise</strong><span>Shadow contamination</span></div>
+    <div class="tax-row"><strong>Routing</strong><span>Group by correction intent</span></div>
+  </div>
+</section>
+
+<section class="chapter" id="export-settings">
+  <p class="eyebrow">Chapter 6  •  Export and Settings</p>
+  <h2 class="chapter-title">Where technical organization becomes operational value.</h2>
+  <p class="lede">Export is where technical organization becomes operational value. Images can be routed into folders by issue type, then opened directly in the software responsible for the finishing pass.</p>
+
+  <div class="settings">
+    <div class="setting"><span class="label">Executable Path</span><strong>C:\Program Files\Adobe\Photoshop\photoshop.exe</strong></div>
+    <div class="setting"><span class="label">Launch Mode</span><strong>Standard or Admin</strong></div>
+    <div class="setting"><span class="label">Folder Strategy</span><strong>Sort by issue class or correction lane</strong></div>
+    <div class="setting"><span class="label">Use Case</span><strong>Open grouped folders directly in the finisher</strong></div>
+  </div>
+</section>
+
+<section class="chapter" id="operations">
+  <p class="eyebrow">Chapter 7  •  Operating Notes</p>
+  <h2 class="chapter-title">Field-tested principles for running the pipeline.</h2>
+
+  <div class="ops">
+    <p><strong>Keep intake clean.</strong> The best automation results come from killing obvious misses before batch analysis starts.</p>
+    <p><strong>Use issue classes as work queues.</strong> The taxonomy exists to reduce context switching during correction.</p>
+    <p><strong>Reserve Color Lab for deliberate passes.</strong> It is strongest when paired with classification, not used blindly across every frame.</p>
+    <p><strong>Keep finishing in native tools.</strong> Kuonix adds structure and speed; the final look still belongs in the editor.</p>
+  </div>
+</section>
+
+<footer class="colophon">
+  <h2>Colophon</h2>
+  <p>This guide documents the operator-facing surface of KUONIX, a platform-agnostic application for sorting images by color-correction needs. It is intended for studio leads, retouchers, and pipeline operators integrating Kuonix into existing batch workflows.</p>
+  <p>&copy; 2026 KUONIX. Imaging intelligence for production photographers.</p>
+</footer>
+
+</body>
+</html>
