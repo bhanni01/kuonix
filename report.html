@@ -81,11 +81,11 @@
                         <li><a href="#dev-workflow">Dev Workflow</a></li>
                         <li><a href="#data-pipeline">Data Pipeline</a></li>
                         <li><a href="#workflow-graph">Workflow</a></li>
-                        <li><a href="#product-demo">Product Demo</a></li>
                         <li><a href="#challenges">Challenges</a></li>
                         <li><a href="#data-scale">Scale</a></li>
                         <li><a href="#ai-direction">AI Direction</a></li>
                         <li><a href="#research">Research</a></li>
+                        <li><a href="#product-demo">Product Demo</a></li>
                         <li><a href="#outcomes">Outcomes</a></li>
                         <li><a href="#closing">Closing</a></li>
                     </ul>
@@ -379,11 +379,11 @@
                                     <path d="M530 145 C 545 105, 545 80, 560 53" class="ng-wire ng-wire--orange"/>
                                     <path d="M530 195 C 545 215, 545 228, 560 238" class="ng-wire ng-wire--orange"/>
                                     <path d="M760 238 C 780 230, 785 224, 800 220" class="ng-wire ng-wire--green"/>
-                                    <path d="M930 151 C 950 125, 950 90, 970 65" class="ng-wire ng-wire--orange"/>
-                                    <path d="M1070 91 C 1070 95, 1070 96, 1070 100" class="ng-wire ng-wire--orange"/>
-                                    <path d="M1170 215 C 1100 295, 1050 370, 970 421" class="ng-wire ng-wire--green"/>
-                                    <path d="M930 220 C 950 360, 950 480, 970 548" class="ng-wire ng-wire--orange"/>
-                                    <path d="M930 290 C 950 460, 950 590, 970 676" class="ng-wire ng-wire--orange"/>
+                                    <path d="M930 151 C 945 130, 955 95, 970 65" class="ng-wire ng-wire--orange"/>
+                                    <path d="M1124 91 C 1124 95, 1124 96, 1124 100" class="ng-wire ng-wire--orange"/>
+                                    <path d="M1278 215 C 1230 280, 1130 380, 970 421" class="ng-wire ng-wire--green"/>
+                                    <path d="M930 220 C 945 280, 955 480, 970 548" class="ng-wire ng-wire--orange"/>
+                                    <path d="M930 290 C 945 380, 955 600, 970 676" class="ng-wire ng-wire--orange"/>
                                 </svg>
 
                                 <article class="ng-node" style="--x:2.14; --y:16; --w:10.5; --h:18;">
@@ -457,13 +457,13 @@
                                     <span class="ng-port ng-port--out ng-port--orange" style="top:81.25%"></span>
                                 </article>
 
-                                <article class="ng-node ng-node--slim" style="--x:69.29; --y:4.5; --w:14.29; --h:6.2;">
+                                <article class="ng-node ng-node--slim" style="--x:69.29; --y:4.5; --w:22; --h:6.2;">
                                     <header class="ng-node__title">Add to Color Lab</header>
                                     <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
                                     <span class="ng-port ng-port--bottom ng-port--green"></span>
                                 </article>
 
-                                <article class="ng-node ng-node--accent" style="--x:69.29; --y:11.76; --w:14.29; --h:27;">
+                                <article class="ng-node ng-node--accent" style="--x:69.29; --y:11.76; --w:22; --h:27;">
                                     <header class="ng-node__title">Color Lab</header>
                                     <div class="ng-node__body">
                                         <div class="ng-row"><span>Category</span><span>White Balance <span class="ng-row__caret">▾</span></span></div>
@@ -478,19 +478,19 @@
                                     <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
                                 </article>
 
-                                <article class="ng-node" style="--x:69.29; --y:43; --w:14.29; --h:13;">
+                                <article class="ng-node" style="--x:69.29; --y:43; --w:22; --h:13;">
                                     <header class="ng-node__title">Save Image / Save All</header>
                                     <div class="ng-node__body"><span class="ng-node__sub">Writes corrected files to disk</span></div>
                                     <span class="ng-port ng-port--in ng-port--green" style="top:50%"></span>
                                 </article>
 
-                                <article class="ng-node" style="--x:69.29; --y:58; --w:14.29; --h:13;">
+                                <article class="ng-node" style="--x:69.29; --y:58; --w:22; --h:13;">
                                     <header class="ng-node__title">Export Filtered Images</header>
                                     <div class="ng-node__body"><span class="ng-node__sub">Send to Krita / external editor</span></div>
                                     <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
                                 </article>
 
-                                <article class="ng-node" style="--x:69.29; --y:73; --w:14.29; --h:13;">
+                                <article class="ng-node" style="--x:69.29; --y:73; --w:22; --h:13;">
                                     <header class="ng-node__title">Organize &amp; Export</header>
                                     <div class="ng-node__body"><span class="ng-node__sub">Group files by issue → folders</span></div>
                                     <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
@@ -516,19 +516,6 @@
                         </div>
 
                         <p class="report-lede report-lede--small">Users upload a batch, Auto Analyze tags each image with issues, Library groups by issue, Color Lab applies category/method-based corrections (white balance, exposure, saturation, advanced), and Export ships organized output. The AI panel and ⌘J command bar can trigger any node via natural language.</p>
-                    </div>
-                </section>
-
-                <section id="product-demo" class="content-section report-slide">
-                    <div class="subsection subsection--premium report-section" data-reveal="up">
-                        <p class="eyebrow eyebrow--dark">Product Demo</p>
-                        <h2 class="subsection-title">Let’s see the product.</h2>
-                        <ul class="report-bullets">
-                            <li><strong>Import a folder</strong> of images straight from disk.</li>
-                            <li><strong>Run classification</strong> on the imported set.</li>
-                            <li><strong>Review and edit</strong> the classified results.</li>
-                            <li><strong>Export</strong> the curated set for delivery.</li>
-                        </ul>
                     </div>
                 </section>
 
@@ -703,6 +690,19 @@
                         </div>
 
                         <p class="report-lede report-lede--small">Bianco gives illuminant-agnostic single-image correction. Dal'Col adds reference-driven matching when a target look exists. All six methods run O(N) per pixel, fast enough for live preview in Color Lab.</p>
+                    </div>
+                </section>
+
+                <section id="product-demo" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Product Demo</p>
+                        <h2 class="subsection-title">Let’s see the product.</h2>
+                        <ul class="report-bullets">
+                            <li><strong>Import a folder</strong> of images straight from disk.</li>
+                            <li><strong>Run classification</strong> on the imported set.</li>
+                            <li><strong>Review and edit</strong> the classified results.</li>
+                            <li><strong>Export</strong> the curated set for delivery.</li>
+                        </ul>
                     </div>
                 </section>
 
