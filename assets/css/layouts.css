@@ -1852,7 +1852,7 @@
     box-shadow: 0 30px 60px rgba(8, 21, 28, 0.25);
     color: #cbd5e1;
     font-family: 'Manrope', system-ui, sans-serif;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -1919,7 +1919,7 @@
 .nodegraph__canvas {
     position: relative;
     width: 100%;
-    aspect-ratio: 1400 / 850;
+    aspect-ratio: 1400 / 1050;
     background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
     background-size: 22px 22px;
     background-position: 11px 11px;
@@ -1969,7 +1969,7 @@
     color: #e2e8f0;
     font-weight: 700;
     text-align: center;
-    font-size: 10.5px;
+    font-size: 14px;
     letter-spacing: 0.01em;
     display: flex;
     justify-content: center;
@@ -1996,10 +1996,10 @@
 
 .ng-node__body {
     flex: 1;
-    padding: 6px 9px;
+    padding: 8px 11px;
     color: rgba(203, 213, 225, 0.85);
-    font-size: 10px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.45;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -2021,7 +2021,7 @@
 
 .ng-node__sub {
     color: rgba(203, 213, 225, 0.55);
-    font-size: 9.5px;
+    font-size: 12.5px;
 }
 
 .ng-node__list {
@@ -2029,12 +2029,12 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 3px;
+    gap: 4px;
 }
 
 .ng-node__list li {
     color: rgba(203, 213, 225, 0.85);
-    font-size: 10px;
+    font-size: 13px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -2055,8 +2055,8 @@
     justify-content: space-between;
     align-items: center;
     color: rgba(203, 213, 225, 0.85);
-    font-size: 10px;
-    padding: 1px 0;
+    font-size: 13px;
+    padding: 2px 0;
 }
 
 .ng-branch-dot {
@@ -2114,7 +2114,7 @@
 
 .ng-row > span:first-child {
     color: rgba(203, 213, 225, 0.55);
-    font-size: 8.5px;
+    font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
@@ -2123,7 +2123,7 @@
 .ng-row > span:last-child {
     color: #e2e8f0;
     font-weight: 600;
-    font-size: 10.5px;
+    font-size: 13.5px;
 }
 
 .ng-row--compact {
@@ -2160,9 +2160,9 @@
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 5px;
-    padding: 3px 2px;
+    padding: 5px 4px;
     color: rgba(203, 213, 225, 0.85);
-    font-size: 8.5px;
+    font-size: 11.5px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -2626,6 +2626,218 @@
     font-size: 0.82rem;
 }
 
+/* ----- Development Workflow / CI slide ----- */
+.ci-flow {
+    display: grid;
+    grid-template-columns: minmax(150px, auto) 64px minmax(0, 1.6fr) 64px minmax(150px, auto);
+    align-items: center;
+    gap: 0;
+    margin-top: 1.6rem;
+}
+
+.ci-stage {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.78));
+    border: 1px solid rgba(8, 21, 28, 0.06);
+    border-radius: 1rem;
+    padding: 1.1rem;
+    box-shadow: 0 10px 24px rgba(8, 21, 28, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ci-stage--start,
+.ci-stage--artifact {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 1.4rem 1rem;
+}
+
+.ci-stage__hero {
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #8af4ff 0%, #11c8ff 100%);
+    color: #08151c;
+    border-radius: 50%;
+    box-shadow: 0 10px 22px rgba(17, 200, 255, 0.32);
+    margin-bottom: 0.4rem;
+}
+
+.ci-stage__hero--success {
+    background: linear-gradient(135deg, #b6f7c0 0%, #2bd06b 100%);
+    box-shadow: 0 10px 22px rgba(43, 208, 107, 0.32);
+}
+
+.ci-stage > strong {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.ci-stage--start > span,
+.ci-stage--artifact > span {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.ci-fork,
+.ci-merge {
+    width: 100%;
+    height: 100%;
+    align-self: stretch;
+    min-height: 240px;
+}
+
+.ci-wire {
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+.ci-wire--cyan {
+    stroke: rgba(0, 224, 255, 0.7);
+}
+
+.ci-wire--green {
+    stroke: rgba(34, 197, 94, 0.7);
+}
+
+.ci-parallel {
+    display: grid;
+    gap: 1rem;
+}
+
+.ci-stage--test {
+    border-left: 4px solid #11c8ff;
+}
+
+.ci-stage--docs {
+    border-left: 4px solid #22c55e;
+}
+
+.ci-stage__head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.ci-stage__head h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    flex: 1;
+    min-width: 0;
+}
+
+.ci-stage__image {
+    background: rgba(8, 21, 28, 0.06);
+    border: 1px solid rgba(8, 21, 28, 0.05);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.ci-stage__icon {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    flex: none;
+}
+
+.ci-stage--test .ci-stage__icon {
+    background: rgba(0, 224, 255, 0.14);
+    color: #0892b8;
+}
+
+.ci-stage--docs .ci-stage__icon {
+    background: rgba(34, 197, 94, 0.14);
+    color: #15803d;
+}
+
+.ci-stage__list {
+    list-style: none;
+    padding: 0;
+    margin: 0.2rem 0 0;
+    display: grid;
+    gap: 0.4rem;
+}
+
+.ci-stage__list li {
+    color: var(--text-muted);
+    font-size: 0.93rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+
+.ci-stage__list li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex: none;
+    transform: translateY(0.5em);
+}
+
+.ci-stage--test .ci-stage__list li::before {
+    background: rgba(0, 224, 255, 0.6);
+    box-shadow: 0 0 6px rgba(0, 224, 255, 0.5);
+}
+
+.ci-stage--docs .ci-stage__list li::before {
+    background: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+}
+
+.ci-stage__list strong {
+    color: var(--text-main);
+}
+
+.ci-stage__list code {
+    background: rgba(8, 21, 28, 0.06);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', Menlo, monospace;
+    font-size: 0.85rem;
+    color: var(--text-main);
+}
+
+.ci-meta {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.4rem;
+    padding-top: 1.1rem;
+    border-top: 1px dashed rgba(8, 21, 28, 0.12);
+}
+
+.ci-meta > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.ci-meta strong {
+    color: var(--text-main);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.ci-meta span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
 .nav-link--button {
     border: 0;
     background: transparent;
@@ -2760,6 +2972,19 @@
 
     .research-grid {
         grid-template-columns: 1fr;
+    }
+
+    .ci-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .ci-fork,
+    .ci-merge {
+        display: none;
+    }
+
+    .ci-meta {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .report-split {
