@@ -79,6 +79,7 @@
                         <li><a href="#frontend-stack">Frontend</a></li>
                         <li><a href="#backend-stack">Backend</a></li>
                         <li><a href="#data-pipeline">Data Pipeline</a></li>
+                        <li><a href="#workflow-graph">Workflow</a></li>
                         <li><a href="#challenges">Challenges</a></li>
                         <li><a href="#ai-direction">AI Direction</a></li>
                         <li><a href="#outcomes">Outcomes</a></li>
@@ -267,6 +268,197 @@
                             <div class="pipeline-band pipeline-band--backend"><strong>Backend</strong><span>Spring Boot · workers</span></div>
                             <div class="pipeline-band pipeline-band--output"><strong>Output</strong><span>To editor</span></div>
                         </div>
+                    </div>
+                </section>
+
+                <section id="workflow-graph" class="content-section report-slide">
+                    <div class="subsection subsection--premium report-section subsection--workflow" data-reveal="up">
+                        <p class="eyebrow eyebrow--dark">Workflow</p>
+                        <h2 class="subsection-title">Kuonix workflow — from upload to corrected, grouped export, with an agentic AI driving every step.</h2>
+
+                        <div class="nodegraph" role="img" aria-label="Kuonix workflow node graph">
+                            <div class="nodegraph__canvas">
+                                <svg class="nodegraph__wires" viewBox="0 0 1400 850" preserveAspectRatio="none" aria-hidden="true">
+                                    <path d="M170 170 C 185 170, 185 170, 200 170" class="ng-wire ng-wire--green"/>
+                                    <path d="M370 170 C 385 170, 385 170, 400 170" class="ng-wire ng-wire--orange"/>
+                                    <path d="M530 145 C 545 100, 545 80, 560 45" class="ng-wire ng-wire--orange"/>
+                                    <path d="M530 195 C 545 207, 545 213, 560 220" class="ng-wire ng-wire--orange"/>
+                                    <path d="M760 220 C 780 215, 780 208, 800 203" class="ng-wire ng-wire--green"/>
+                                    <path d="M930 145 C 950 115, 950 85, 970 60" class="ng-wire ng-wire--orange"/>
+                                    <path d="M1070 80 C 1070 90, 1070 90, 1070 100" class="ng-wire ng-wire--orange"/>
+                                    <path d="M1170 210 C 1100 290, 1050 350, 970 385" class="ng-wire ng-wire--green"/>
+                                    <path d="M930 203 C 950 320, 950 420, 970 475" class="ng-wire ng-wire--orange"/>
+                                    <path d="M930 262 C 950 400, 950 510, 970 565" class="ng-wire ng-wire--orange"/>
+                                    <path d="M580 715 C 590 715, 590 715, 600 715" class="ng-wire ng-wire--green"/>
+                                    <path d="M770 725 C 600 600, 500 400, 465 220" class="ng-wire ng-wire--orange"/>
+                                    <path d="M400 715 C 530 600, 600 350, 660 301" class="ng-wire ng-wire--green"/>
+                                </svg>
+
+                                <article class="ng-node" style="--x:2.14; --y:14.12; --w:10; --h:11.76;">
+                                    <header class="ng-node__title">Upload Images</header>
+                                    <div class="ng-node__body ng-node__body--center">
+                                        <span class="ng-node__icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                                        </span>
+                                        <span class="ng-node__sub">Browse / Drag &amp; drop</span>
+                                    </div>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:14.29; --y:9.41; --w:12.14; --h:21.18;">
+                                    <header class="ng-node__title">Auto Analyze</header>
+                                    <div class="ng-node__body">
+                                        <ul class="ng-node__list">
+                                            <li>Contrast</li>
+                                            <li>Oversaturation</li>
+                                            <li>Color Cast</li>
+                                            <li>Skin Tone</li>
+                                            <li>Exposure</li>
+                                        </ul>
+                                    </div>
+                                    <span class="ng-port ng-port--in ng-port--green" style="top:50%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:28.57; --y:14.12; --w:9.29; --h:11.76;">
+                                    <header class="ng-node__title">Issues found?</header>
+                                    <div class="ng-node__body">
+                                        <div class="ng-branch-row"><span>Yes</span><span class="ng-branch-dot ng-branch-dot--orange"></span></div>
+                                        <div class="ng-branch-row"><span>No</span><span class="ng-branch-dot ng-branch-dot--orange"></span></div>
+                                    </div>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                    <span class="ng-port ng-port--bottom ng-port--orange"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:25%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:75%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--say" style="--x:40; --y:1.18; --w:14.29; --h:8.24;">
+                                    <header class="ng-node__title">Say</header>
+                                    <div class="ng-node__body">“No issues detected — your batch looks clean!”</div>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:40; --y:16.47; --w:14.29; --h:19;">
+                                    <header class="ng-node__title">Group by Issue <span class="ng-node__view">Library</span></header>
+                                    <div class="ng-node__body">
+                                        <div class="ng-chip-row">
+                                            <span class="ng-chip ng-chip--active">Contrast</span>
+                                            <span class="ng-chip">Oversat</span>
+                                            <span class="ng-chip">Cast</span>
+                                            <span class="ng-chip">Skin</span>
+                                        </div>
+                                        <span class="ng-node__sub">Filter → selection</span>
+                                    </div>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                    <span class="ng-port ng-port--bottom ng-port--green"></span>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:57.14; --y:12.94; --w:9.29; --h:22;">
+                                    <header class="ng-node__title">User action?</header>
+                                    <div class="ng-node__body">
+                                        <div class="ng-branch-row"><span>Correct</span><span class="ng-branch-dot ng-branch-dot--orange"></span></div>
+                                        <div class="ng-branch-row"><span>Export</span><span class="ng-branch-dot ng-branch-dot--orange"></span></div>
+                                        <div class="ng-branch-row"><span>Organize Export</span><span class="ng-branch-dot ng-branch-dot--orange"></span></div>
+                                    </div>
+                                    <span class="ng-port ng-port--in ng-port--green" style="top:50%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:18.75%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:50%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:81.25%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--slim" style="--x:69.29; --y:4.71; --w:14.29; --h:4.71;">
+                                    <header class="ng-node__title">Add Selected to Color Lab</header>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                    <span class="ng-port ng-port--bottom ng-port--green"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--accent" style="--x:69.29; --y:11.76; --w:14.29; --h:25.88;">
+                                    <header class="ng-node__title">Color Lab</header>
+                                    <div class="ng-node__body">
+                                        <div class="ng-row"><span>Category</span><span>White Balance <span class="ng-row__caret">▾</span></span></div>
+                                        <div class="ng-row"><span>Method</span><span>Gray World <span class="ng-row__caret">▾</span></span></div>
+                                        <div class="ng-btn-row">
+                                            <span class="ng-btn">Compare</span>
+                                            <span class="ng-btn">Apply All</span>
+                                            <span class="ng-btn">Save Preset</span>
+                                        </div>
+                                        <span class="ng-node__sub">WB · Exposure · Saturation · Advanced</span>
+                                    </div>
+                                    <span class="ng-port ng-port--top ng-port--green"></span>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:69.29; --y:41.18; --w:14.29; --h:8.24;">
+                                    <header class="ng-node__title">Save Image / Save All</header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Writes corrected files to disk</span></div>
+                                    <span class="ng-port ng-port--in ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:69.29; --y:51.76; --w:14.29; --h:8.24;">
+                                    <header class="ng-node__title">Export Filtered Images</header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Send to Krita / external editor</span></div>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node" style="--x:69.29; --y:62.35; --w:14.29; --h:8.24;">
+                                    <header class="ng-node__title">Organize &amp; Export</header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Group files by issue → folders</span></div>
+                                    <span class="ng-port ng-port--in ng-port--orange" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--var" style="--x:2.86; --y:80; --w:11.43; --h:8.24;">
+                                    <header class="ng-node__title">theme <span class="ng-type">dark | light</span></header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Read variable</span></div>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--var" style="--x:15.71; --y:80; --w:12.86; --h:8.24;">
+                                    <header class="ng-node__title">selectedIssue <span class="ng-type">string</span></header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Read variable</span></div>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--var" style="--x:30; --y:80; --w:11.43; --h:8.24;">
+                                    <header class="ng-node__title">imageCount <span class="ng-type">Number</span></header>
+                                    <div class="ng-node__body"><span class="ng-node__sub">Read variable</span></div>
+                                    <span class="ng-port ng-port--out ng-port--green" style="top:50%"></span>
+                                </article>
+
+                                <article class="ng-node ng-node--var" style="--x:42.86; --y:80; --w:12.14; --h:10.59;">
+                                    <header class="ng-node__title">Comparison</header>
+                                    <div class="ng-node__body">
+                                        <div class="ng-row ng-row--compact"><span>A</span><span>&gt; 0</span></div>
+                                        <span class="ng-node__sub">Output → Issues found?</span>
+                                    </div>
+                                    <span class="ng-port ng-port--in ng-port--green" style="top:50%"></span>
+                                    <span class="ng-port ng-port--out ng-port--orange" style="top:50%"></span>
+                                </article>
+
+                                <div class="nodegraph__minimap" aria-hidden="true">
+                                    <svg viewBox="0 0 140 90" preserveAspectRatio="none">
+                                        <rect x="2" y="14" width="14" height="12" rx="2" class="mm-node"/>
+                                        <rect x="20" y="9" width="17" height="22" rx="2" class="mm-node"/>
+                                        <rect x="40" y="14" width="13" height="12" rx="2" class="mm-node"/>
+                                        <rect x="56" y="1" width="20" height="8" rx="2" class="mm-node"/>
+                                        <rect x="56" y="16" width="20" height="15" rx="2" class="mm-node"/>
+                                        <rect x="80" y="13" width="13" height="19" rx="2" class="mm-node"/>
+                                        <rect x="97" y="5" width="20" height="4" rx="2" class="mm-node"/>
+                                        <rect x="97" y="12" width="20" height="26" rx="2" class="mm-node mm-node--accent"/>
+                                        <rect x="97" y="42" width="20" height="8" rx="2" class="mm-node"/>
+                                        <rect x="97" y="52" width="20" height="8" rx="2" class="mm-node"/>
+                                        <rect x="97" y="62" width="20" height="8" rx="2" class="mm-node"/>
+                                        <rect x="4" y="80" width="16" height="8" rx="2" class="mm-node"/>
+                                        <rect x="22" y="80" width="18" height="8" rx="2" class="mm-node"/>
+                                        <rect x="42" y="80" width="16" height="8" rx="2" class="mm-node"/>
+                                        <rect x="60" y="80" width="17" height="10" rx="2" class="mm-node"/>
+                                        <rect x="118" y="74" width="20" height="14" rx="2" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="0.8"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="report-lede report-lede--small">Users upload a batch, Auto Analyze tags each image with issues, Library groups by issue, Color Lab applies category/method-based corrections (white balance, exposure, saturation, advanced), and Export ships organized output. The AI panel and ⌘J command bar can trigger any node via natural language.</p>
                     </div>
                 </section>
 
